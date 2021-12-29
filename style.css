@@ -1,0 +1,113 @@
+
+
+/*==== RESET =====================================*/
+* {
+  margin:0px; 
+  padding: 0px;
+  box-sizing: border-box;
+  /* 
+  Reseto a margin e o padding de todas as caixas/elementos da pagina deixando em 0px alem de mudar o comportamento da propriedade "box-sizing" declarando seu valor igual "border-box"!
+  */
+}
+a {
+  text-decoration: none; /*Propriedade da decoração do textos. Em todos os elementos <a> as decorações dos textos foram retiradas devido a declaração do valor "none". */
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/*==== VARIAVEIS =====================================*/
+
+:root{
+  --hue: 159;
+
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+  font-size: 100%; 
+  /*
+  Os 100% do font-size é 16px. esses 16 px é o que o navegador definiu como padrão para ele!
+  */
+  
+  /*
+  então esse valor do fonte size será utilzado como referencia para os tamanhos de heigt, marging, padding entre outras pripriedades no CSS. O calculo para utilizar o valor do :root como referencia sera: medida da pagina (MP) em px dividido por 16px: 
+            MP/16px = Xrem 
+  As "MP" são baseados no projeto disponivel no figma: 
+    https://www.figma.com/file/NtSPxDA383aacOkF0GwfsC/Origin-Six-(Community)?node-id=0%3A1
+  */
+  
+}
+
+/*==== BASE =====================================*/
+body {
+  
+  font: 400 1rem "DM Sans", sans-serif; 
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased; /**/
+  /* peso, "familia", sans-serif*/
+  /*Utilizando as fonts do google*/
+}
+
+h1 {
+  font: 700 1.875rem "Popping", sans-serif; 
+  color: var(--title-color);
+  -webkit-font-smoothing: antialiased; /**/
+  /*Utilizando as fonts do google*/
+}
+
+.button {
+ 
+
+
+}
+
+
+/*==== LAYOUT =====================================*/
+#header {
+  border-bottom: 1px solid #E4E4E4; /*Apropriedade adiciona uma borda na parte inferiro*/
+}
+
+#header nav {
+  height: 4.5rem; /* 72px/16px = 4.5rem*/
+  display: flex; /*O valor flex Exibe o conteudo das Caixas/tags ao do lado da outra para para o user! */
+  align-items: center; /*Alinhando as elementos/conteudos inseridos no nav*/
+  justify-content: space-between; /*Após a propriedade "display" ser habilitada, é possivel acessar a propriedade  justify-content. o valor "space-between" posiciona o conteudo das caixas nos polos!*/
+}
+
+.logo {
+  font: 700 1.3125rem "Popping", sans-serif; /* 21px/16px = 1.3125rem */
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+.container {
+  width: 100%;
+  margin-left: 1.5rem;/* 24px/ 16px = 1.5rem*/
+  margin-right: 1.5rem; 
+
+  /*A classe .container sera utilizada para padronizar as medidas referente as margin dos conteudos que senencontran nos section inseridos na caixa main" como está no projeto do fingma.
+  OBS: todas as Caixas/tags filhas herdaram a formatação da tag pai! */
+}
+
+.grid {
+  display: grid;
+  gap: 2rem; /*32px/26*/
+  /* A prorpiedade display abilita outras propriedades uma delas é o "gap". todo  elemento ao receber a class "grid" abrira um espaço padrão de 2rem  */
+}
+
+.section {
+  padding: 5rem 0;; /*80px/16px = 5rem*/
+}
+
+
+/*==== HOME =====================================*/
