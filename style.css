@@ -21,10 +21,11 @@ img {
 /*==== VARIAVEIS =====================================*/
 
 :root{
+  --header-height: 4.5rem; /* altura do heder 72px/16px = 4.5rem*/
   --hue: 159;
 
   --base-color: hsl(var(--hue) 36% 57%);
-  --base-color-second: hsl(var(--hue) 65% 88%);dcdc 
+  --base-color-second: hsl(var(--hue) 65% 88%);
   --base-color-alt: hsl(var(--hue) 57% 53%);
   --title-color: hsl(var(--hue) 41% 10%);
   --text-color: hsl(0 0% 46%);
@@ -63,33 +64,33 @@ h1 {
 }
 
 .button {
- 
+  background: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem ; /* 56px/16px = 3.5rem*/
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem; /*0 (top e buttom) 2rem (left e right)*/
+  border-radius: 0.25rem; /* 4px/16px = 0.25rem*/
+  font: 500 1rem "DM Sans", sans-serif; /*baseado no figma*/
+  transition: 0.5s; /*muda de cor em 0.5 segundos*/
+}
 
+.button:hover {
+  background: var(--base-color-alt); 
+}
 
+.divider-1 {
+  height: 1px; /*baseado no figma*/
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1) 0%,
+    hsla(var(--hue), 65%, 88%, 0.34) 100%
+  );/*baseado no figma*/
+  
 }
 
 
 /*==== LAYOUT =====================================*/
-#header {
-  border-bottom: 1px solid #E4E4E4; /*Apropriedade adiciona uma borda na parte inferiro*/
-}
-
-#header nav {
-  height: 4.5rem; /* 72px/16px = 4.5rem*/
-  display: flex; /*O valor flex Exibe o conteudo das Caixas/tags ao do lado da outra para para o user! */
-  align-items: center; /*Alinhando as elementos/conteudos inseridos no nav*/
-  justify-content: space-between; /*Após a propriedade "display" ser habilitada, é possivel acessar a propriedade  justify-content. o valor "space-between" posiciona o conteudo das caixas nos polos!*/
-}
-
-.logo {
-  font: 700 1.3125rem "Popping", sans-serif; /* 21px/16px = 1.3125rem */
-  color: var(--title-color);
-}
-
-.logo span {
-  color: var(--base-color);
-}
-
 .container {
   width: 100%;
   margin-left: 1.5rem;/* 24px/ 16px = 1.5rem*/
@@ -110,4 +111,81 @@ h1 {
 }
 
 
+#header {
+  border-bottom: 1px solid #E4E4E4; /*Apropriedade adiciona uma borda na parte inferiro*/
+  margin-bottom: 2rem;
+  display: flex; /*realiza a adaptação dos conteudos inseridos no #heder*/
+  
+  width: 100%; /*garantia que vai pegar toda a tela */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  background: var(--body-color);
+}
+
+#header nav {
+  height: var(--header-height); 
+  display: flex; /*O valor flex Exibe o conteudo das Caixas/tags ao do lado da outra para para o user! */
+  align-items: center; /*Alinhando as elementos/conteudos inseridos no nav*/
+  justify-content: space-between; /*Após a propriedade "display" ser habilitada, é possivel acessar a propriedade  justify-content. o valor "space-between" posiciona o conteudo das caixas nos polos!*/
+}
+
+.logo {
+  font: 700 1.3125rem "Popping", sans-serif; /* 21px/16px = 1.3125rem */
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+main {
+  margin-top: var(--header-height);
+}
+
+
 /*==== HOME =====================================*/
+#home {
+  overflow: hidden; /*Evita transbordar o conteundo inserido na caixa detentora do id="home"*/
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative; /* agora a caixa servira como uma referencia para aos demais elementos que receberem a propriedade "position"*/
+}
+
+#home .image::before {
+  content: '';
+  position: absolute; /*o conteudo inserido antes é absoluto apenas na tag com a classificção "image" no caso a tag <div class="image"> </div>*/
+  top:-16.8%; /*disctancia da img (top)/ altura da before = 40.8/242,27 = 16.8% */
+  left: 13.25%;/*disctancia da margin a lef/ largura da before = 46,11/347,89 = 13.25% */
+  height: 100%; /*pega 100% da caixa*/
+  width: 100%;
+  background: var(--base-color); 
+  z-index: 0;
+  
+}
+#home .image img {
+  position: relative; /*Propriedade que habilita outras sendo uma delas a "right".*/
+  right: 2.93rem; /*base ado no fignma: 47px/16px = 2.93rem*/
+  margin-bottom: 2rem; /*32px/16px = 2rem*/
+}
+
+#home .image img, 
+#home .image::before{
+  border-radius: 0.25rem; /*4px/16px = 0.25rem*/
+}
+
+#home .text {
+  margin-left: 1.5rem;/* 24px/ 16px = 1.5rem*/
+  margin-right: 1.5rem; 
+  text-align: center;
+}
+
+#home  .text h1 {
+  margin-bottom: 1rem ; /*16px/16px = 1rem*/
+}
