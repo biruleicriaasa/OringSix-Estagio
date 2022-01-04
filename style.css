@@ -1,6 +1,6 @@
 /*==== RESET =====================================*/
 * {
-  margin:0px; 
+  margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   /* 
@@ -20,11 +20,9 @@ img {
   height: auto; /*faz com que a imagem se adaptar ao tamnho da caixa/tag*/
 }
 
-
 /*==== VARIAVEIS =====================================*/
-:root{
-
-  --header-height: 4.5rem;/*autura do #header */
+:root {
+  --header-height: 4.5rem; /*autura do #header */
   --hue: 159;
 
   --base-color: hsl(var(--hue) 36% 57%);
@@ -34,11 +32,11 @@ img {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
-  font-size: 100%; 
+  font-size: 100%;
   /*
   Os 100% do font-size é 16px. esses 16 px é o que o navegador definiu como padrão para ele!
   */
-  
+
   /*
   então esse valor do fonte size será utilzado como referencia para os tamanhos de heigt, marging, padding entre outras pripriedades no CSS. O calculo para utilizar o valor do :root como referencia sera: medida da pagina (MP) em px dividido por 16px: 
             MP/16px = Xrem 
@@ -47,11 +45,9 @@ img {
   */
 }
 
-
 /*==== BASE =====================================*/
 body {
-  
-  font: 400 1rem "DM Sans", sans-serif; 
+  font: 400 1rem 'DM Sans', sans-serif;
   color: var(--text-color);
   background: var(--body-color);
   -webkit-font-smoothing: antialiased; /**/
@@ -60,9 +56,9 @@ body {
 }
 
 .title {
-  font:  700 1.875rem "Poppins", sans-serif;
+  font: 700 1.875rem 'Poppins', sans-serif;
   color: var(--title-color);
-  -webkit-font-smoothing: antialiased;/**/
+  -webkit-font-smoothing: antialiased; /**/
   /*utilizando fontes do google*/
 }
 
@@ -91,12 +87,10 @@ body {
   );
 }
 
-
-
 /*==== LAYOUT =====================================*/
 .container {
-  margin-left: 1.5rem;/* 24px/ 16px = 1.5rem*/
-  margin-right: 1.5rem; 
+  margin-left: 1.5rem; /* 24px/ 16px = 1.5rem*/
+  margin-right: 1.5rem;
 
   /*A classe .container sera utilizada para padronizar as medidas referente as margin dos conteudos que senencontran nos section inseridos na caixa main" como está no projeto do fingma.
   OBS: todas as Caixas/tags filhas herdaram a formatação da tag pai! */
@@ -113,7 +107,7 @@ body {
 }
 
 #header {
-  border-bottom: 1px solid #E4E4E4; /*Apropriedade adiciona uma borda na parte inferiro*/
+  border-bottom: 1px solid #e4e4e4; /*Apropriedade adiciona uma borda na parte inferiro*/
   margin-bottom: 2rem;
   display: flex;
 
@@ -126,15 +120,16 @@ body {
 }
 
 main {
-  margin-top: calc((--header-height) + 2rem);/*é devido ao valor "fixed da propriedade no elemento #header que é necessário" para estabeleer a distancia dos elementos  "main e #header" a fim de ficar mais proximo do prototipo que se encontra ni figma.
+  margin-top: calc(
+    (--header-height) + 2rem
+  ); /*é devido ao valor "fixed da propriedade no elemento #header que é necessário" para estabeleer a distancia dos elementos  "main e #header" a fim de ficar mais proximo do prototipo que se encontra ni figma.
   os +2rem é a distancia entre a image::before e o #header*/
-
 }
 
 /*==== LOGO =====================================*/
 
 .logo {
-  font: 700 1.3125rem "Poppins", sans-serif; /* 21px/16px = 1.3125rem */
+  font: 700 1.3125rem 'Poppins', sans-serif; /* 21px/16px = 1.3125rem */
   color: var(--title-color);
 }
 
@@ -153,19 +148,19 @@ main {
 }
 
 nav ul li {
- text-align: center;
- position: relative;
+  text-align: center;
+  position: relative;
 }
 
 nav ul li a {
-  transition:  color 0.3s;
- }
- 
- nav ul li a:hover {
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
   color: var(--base-color);
- }
- 
- nav ul li a::after {
+}
+
+nav ul li a::after {
   content: '';
   width: 0%;
   height: 0.13rem;
@@ -175,30 +170,30 @@ nav ul li a {
   bottom: -1.5rem;
   left: 0;
   transition: width 0.3s;
- }
+}
 
- nav ul li a:hover::after {
+nav ul li a:hover::after {
   width: 100%;
- }
+}
 
- nav .menu {
-   opacity: 0;
-   visibility: hidden;
- }
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+}
 
- /*Mostar Menu*/
- nav.show .menu {
-   opacity: 1;
-   visibility: visible;
-   background: var(--body-color);
-   position: fixed;
-   top: 0;
-   left: 0;
-   height: 100vh;
-   width: 100vw;
- }
+/*Mostar Menu*/
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+  background: var(--body-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
 
- nav.show .menu {
+nav.show .menu {
   display: grid;
   place-content: center;
 }
@@ -219,26 +214,23 @@ main {
 }
 
 nav .icon-close {
- opacity: 0;
- visibility: hidden; 
- position: absolute;
- right: 1.5rem;
- /*transi*/
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  right: 1.5rem;
+  /*transi*/
 }
 
 nav.show div.icon-close {
   opacity: 1;
-<<<<<<< HEAD
-  visibility: visible; 
- }
-=======
+  visibility: visible;
   visibility: visible;
   background: var(--body-color);
   position: fixed; /*usado para deixar fixa e criar uma camada acima de todo conteudo da pagina na tela do usuário*/
   top: 0;
   left: 0;
-  height: 100vh;/*serve para pegar 100% da height da tela do despositivo*/
-  width: 100vw;/*serve para pegar 100% da width da tela do despositivo*/
+  height: 100vh; /*serve para pegar 100% da height da tela do despositivo*/
+  width: 100vw; /*serve para pegar 100% da width da tela do despositivo*/
 }
 
 nav.show .menu {
@@ -246,7 +238,8 @@ nav.show .menu {
   place-content: center; /*deixando o conteudo no centro!*/
 }
 
-nav.show ul.grid { /*deixo o cursor do mouse em cima do seletor para ver sua espeficidade nesse caso temos 12 de espeficicdade */
+nav.show ul.grid {
+  /*deixo o cursor do mouse em cima do seletor para ver sua espeficidade nesse caso temos 12 de espeficicdade */
   gap: 4rem; /*Baseada*/
 }
 
@@ -254,12 +247,12 @@ nav.show ul.grid { /*deixo o cursor do mouse em cima do seletor para ver sua esp
 .toggle {
   color: var(--base-color);
   font-size: 1.5rem;
-  cursor: pointer;/*quando o usuário colocar o cursor em cima dos botões toggles, ele mudara para uma mão apontando o dedo*/
+  cursor: pointer; /*quando o usuário colocar o cursor em cima dos botões toggles, ele mudara para uma mão apontando o dedo*/
 }
 nav .icon-close {
   visibility: hidden;
   opacity: 0;
-  position: absolute; 
+  position: absolute;
   right: 1.5rem;
 }
 
@@ -268,7 +261,6 @@ nav.show div.icon-close {
   opacity: 1;
 }
 
->>>>>>> 4bb374bb7cec7b83eb2ff3ed53a3da764aac36d7
 /*==== HOME =====================================*/
 #home {
   overflow: hidden;
