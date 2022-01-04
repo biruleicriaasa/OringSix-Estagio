@@ -21,7 +21,6 @@ const linksMenu = document.querySelectorAll('#header nav .menu ul li a')
 for (const links of linksMenu) {
   links.addEventListener('click', function () {
     nav.classList.remove('show')
-    // teste aqui
   })
 }
 
