@@ -12,8 +12,6 @@ for(const element of toggle){ // para ("tipo_variavel" "nomeVariavelQualquer" of
   });
 }
 
-console.log(toggle)
-
 // quando clicar em qualquer item linkado do menu, feche o menu
 const linksMenu = document.querySelectorAll('#header nav .menu ul li a');
 
@@ -23,3 +21,18 @@ for(const links of linksMenu){
     nav.classList.remove('show')
   });
 }
+
+//mudar o header da página quando der scroll
+const header = document.querySelector('#header');
+const alturadoHeader = header.offsetHeight;
+
+window.addEventListener('scroll', 
+function() {
+  if(window.scrollY >= alturadoHeader){
+    header.classList.add('scroll');
+  }else{
+    header.classList.remove('scroll');
+  }
+}) 
+
+
