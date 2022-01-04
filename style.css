@@ -6,25 +6,25 @@
   /* 
   Reseto a margin e o padding de todas as caixas/elementos da pagina deixando em 0px alem de mudar o comportamento da propriedade "box-sizing" declarando seu valor igual "border-box"!
   */
-  
 }
 a {
   text-decoration: none; /*Propriedade da decoração do textos. Em todos os elementos <a> as decorações dos textos foram retiradas devido a declaração do valor "none". */
 }
 
 ul {
-  list-style: none; /*retirando todos os style das listas não ordenadas <ul>*/
+  list-style: none;
 }
 
 img {
   width: 100%;
-  height: auto;
+  height: auto; /*faz com que a imagem se adaptar ao tamnho da caixa/tag*/
 }
 
-/*==== VARIAVEIS =====================================*/
 
+/*==== VARIAVEIS =====================================*/
 :root{
-  --header-height: 4.5rem; /* altura do heder 72px/16px = 4.5rem*/
+
+  --header-height: 4.5rem;/*autura do #header */
   --hue: 159;
 
   --base-color: hsl(var(--hue) 36% 57%);
@@ -45,8 +45,8 @@ img {
   As "MP" são baseados no projeto disponivel no figma: 
     https://www.figma.com/file/NtSPxDA383aacOkF0GwfsC/Origin-Six-(Community)?node-id=0%3A1
   */
-  
 }
+
 
 /*==== BASE =====================================*/
 body {
@@ -60,42 +60,41 @@ body {
 }
 
 .title {
-  font: 700 1.875rem "Popping", sans-serif; 
+  font:  700 1.875rem "Poppins", sans-serif;
   color: var(--title-color);
-  -webkit-font-smoothing: antialiased; /**/
-  /*Utilizando as fonts do google*/
+  -webkit-font-smoothing: antialiased;/**/
+  /*utilizando fontes do google*/
 }
 
 .button {
-  background: var(--base-color);
+  background-color: var(--base-color);
   color: var(--text-color-light);
-  height: 3.5rem ; /* 56px/16px = 3.5rem*/
+  height: 3.5rem;
   display: inline-flex;
   align-items: center;
-  padding: 0 2rem; /*0 (top e buttom) 2rem (left e right)*/
-  border-radius: 0.25rem; /* 4px/16px = 0.25rem*/
-  font: 500 1rem "DM Sans", sans-serif; /*baseado no figma*/
-  transition: 0.5s; /*muda de cor em 0.5 segundos*/
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem var(--body-font);
+  transition: background 0.3s; /*muda a cor do background em 0.3s*/
 }
 
 .button:hover {
-  background: var(--base-color-alt); 
+  background: var(--base-color-alt);
 }
 
 .divider-1 {
-  height: 1px; /*baseado no figma*/
+  height: 1px;
   background: linear-gradient(
     270deg,
     hsla(var(--hue), 36%, 57%, 1) 0%,
     hsla(var(--hue), 65%, 88%, 0.34) 100%
-  );/*baseado no figma*/
-  
+  );
 }
+
 
 
 /*==== LAYOUT =====================================*/
 .container {
-  width: 100%;
   margin-left: 1.5rem;/* 24px/ 16px = 1.5rem*/
   margin-right: 1.5rem; 
 
@@ -110,33 +109,32 @@ body {
 }
 
 .section {
-  padding: 5rem 0;; /*80px/16px = 5rem*/
+  padding: 5rem 0; /*80px/16px = 5rem*/
 }
-
 
 #header {
   border-bottom: 1px solid #E4E4E4; /*Apropriedade adiciona uma borda na parte inferiro*/
   margin-bottom: 2rem;
-  display: flex; /*realiza a adaptação dos conteudos inseridos no #heder*/
-  
-  width: 100%; /*garantia que vai pegar toda a tela */
+  display: flex;
+
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: 100;
-  background: var(--body-color);
+  background-color: var(--body-color);
+  width: 100%;
 }
 
 main {
-  margin-top: calc(var(--header-height) + 2rem); /*devido ao valor fixed da propriedade position no elemento #header é nescessario  realizar um calculo entre a distancia dos elementos "main e #header" para ficar o mais proximo do protitipo que se encontra no figma.
-  os 2rem é a distancia entre a .image::before e o #header.
-  */
+  margin-top: calc((--header-height) + 2rem);/*é devido ao valor "fixed da propriedade no elemento #header que é necessário" para estabeleer a distancia dos elementos  "main e #header" a fim de ficar mais proximo do prototipo que se encontra ni figma.
+  os +2rem é a distancia entre a image::before e o #header*/
 
 }
 
 /*==== LOGO =====================================*/
+
 .logo {
-  font: 700 1.3125rem "Popping", sans-serif; /* 21px/16px = 1.3125rem */
+  font: 700 1.3125rem "Poppins", sans-serif; /* 21px/16px = 1.3125rem */
   color: var(--title-color);
 }
 
@@ -145,8 +143,9 @@ main {
 }
 
 /*==== NAVEGATION =====================================*/
+
 #header nav {
-  height: var(--header-height); 
+  height: var(--header-height); /* 72px/16px = 4.5rem*/
   display: flex; /*O valor flex Exibe o conteudo das Caixas/tags ao do lado da outra para para o user! */
   align-items: center; /*Alinhando as elementos/conteudos inseridos no nav*/
   justify-content: space-between; /*Após a propriedade "display" ser habilitada, é possivel acessar a propriedade  justify-content. o valor "space-between" posiciona o conteudo das caixas nos polos!*/
@@ -154,65 +153,86 @@ main {
 }
 
 nav ul li {
-  text-align: center;
+ text-align: center;
+ position: relative;
 }
 
 nav ul li a {
-  transition: color 0.5s;
-  position: relative; /**/
-}
-
-nav ul li a:hover {
+  transition:  color 0.3s;
+ }
+ 
+ nav ul li a:hover {
   color: var(--base-color);
-}
-
-nav ul li a::after {
+ }
+ 
+ nav ul li a::after {
   content: '';
   width: 0%;
-  height: 0.13rem; /*baseado no prototipo que se encontra no figma*/
+  height: 0.13rem;
   background: var(--base-color);
 
-  position: absolute;/*está absoluta em relação ao "nav ul li a"*/
-  bottom: -1.5rem;/*coloca o a:hover::after abaixo do conteudo da tag <a> que se encontra na lista não ordenada */
+  position: absolute;
+  bottom: -1.5rem;
   left: 0;
-  transition:  width 0.4s; /*Realiza a transição apenas da width*/
-}
+  transition: width 0.3s;
+ }
 
-nav ul li a:hover::after { /*sintax: dentro do <nav> que contem <ul> que possui <i>  <a>Conteudo</a></i> - a:hover::after (quando passar o mause em cima do <a> 
-  ) */
+ nav ul li a:hover::after {
   width: 100%;
-  /**/
+ }
+
+ nav .menu {
+   opacity: 0;
+   visibility: hidden;
+ }
+
+ /*Mostar Menu*/
+ nav.show .menu {
+   opacity: 1;
+   visibility: visible;
+   background: var(--body-color);
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100vh;
+   width: 100vw;
+ }
+
+ nav.show .menu {
+  display: grid;
+  place-content: center;
 }
 
-nav .menu {
-  opacity: 0;
-  visibility: hidden; 
-  /*desabilita  todos os elementos/conteudos inseridos no elemento que deten a class="menu" dentro da tag "nav"*/
+nav.show ul.grid {
+  gap: 4rem;
 }
 
-nav.show .menu { /*nav.show .menu: nessa sintax o elemento <nav> recebe uma class show e realiza as devidas alterações nos elementos que possui class="menu". */
+main {
+  margin-top: var(--header-height);
+}
+
+/* toggle menu */
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav .icon-close {
+ opacity: 0;
+ visibility: hidden; 
+ position: absolute;
+ right: 1.5rem;
+ /*transi*/
+}
+
+nav.show div.icon-close {
   opacity: 1;
-  visibility: visible;
-  background: var(--body-color);
-  position: fixed; /*usado para deixar fixa e criar uma camada acima de todo conteudo da pagina na tela do usuário*/
-  top: 0;
-  left: 0;
-  height: 100vh;/*serve para pegar 100% da height da tela do despositivo*/
-  width: 100vw;/*serve para pegar 100% da width da tela do despositivo*/
-}
-
-nav.show .menu {
-  display: grid; /*para habilitrar novas propriedades uma delas "place-content" e declarar o valaor "center" */
-  place-content: center; /*deixando o conteudo no centro!*/
-}
-
-nav.show ul.grid { /*deixo o cursor do mouse em cima do seletor para ver sua espeficidade nesse caso temos 12 de espeficicdade */
-  gap: 4rem; /*Baseada*/
-}
-
+  visibility: visible; 
+ }
 /*==== HOME =====================================*/
 #home {
-  overflow: hidden; /*Evita transbordar o conteundo inserido na caixa detentora do id="home"*/
+  overflow: hidden;
 }
 
 #home .container {
@@ -220,37 +240,42 @@ nav.show ul.grid { /*deixo o cursor do mouse em cima do seletor para ver sua esp
 }
 
 #home .image {
-  position: relative; /* agora a caixa servira como uma referencia para aos demais elementos que receberem a propriedade "position"*/
+  position: relative;
 }
 
 #home .image::before {
   content: '';
-  position: absolute; /*o conteudo inserido antes é absoluto apenas na tag com a classificção "image" no caso a tag <div class="image"> </div>*/
-  top:-16.8%; /*disctancia da img (top)/ altura da before = 40.8/242,27 = 16.8% */
-  left: 13.25%;/*disctancia da margin a lef/ largura da before = 46,11/347,89 = 13.25% */
-  height: 100%; /*pega 100% da caixa*/
+  height: 100%;
   width: 100%;
-  background: var(--base-color); 
+  background: var(--base-color-second);
+  position: absolute;
+  top: -16.8%;
+  left: 16.7%;
   z-index: 0;
-  
-}
-#home .image img {
-  position: relative; /*Propriedade que habilita outras sendo uma delas a "right".*/
-  right: 2.93rem; /*base ado no fignma: 47px/16px = 2.93rem*/
-  margin-bottom: 2rem; /*32px/16px = 2rem*/
 }
 
-#home .image img, 
-#home .image::before{
-  border-radius: 0.25rem; /*4px/16px = 0.25rem*/
+#home .image img {
+  position: relative;
+  right: 2.93rem;
+  margin-bottom: 2rem;
+}
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
 }
 
 #home .text {
-  margin-left: 1.5rem;/* 24px/ 16px = 1.5rem*/
-  margin-right: 1.5rem; 
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   text-align: center;
 }
 
-#home  .text h1 {
-  margin-bottom: 1rem ; /*16px/16px = 1rem*/
+#home .text h1 {
+  margin-bottom: 1rem;
 }
+
+#home .text p {
+  margin-bottom: 1rem;
+}
+/*==== ABOUT =====================================*/
