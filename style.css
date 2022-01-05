@@ -392,3 +392,106 @@ nav.show ul.grid {
   margin-bottom: 0.75rem;
 }
 
+/*==== TESTIMONIALS =====================================*/
+#testimonials {
+  background: white;
+  overflow: hidden;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testimonials header {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0rem;
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative; /*para serervir de referencia para a caixa <span>*/
+  text-indent: 1.875rem; /*Para colocar o espaçamento na primeira linha dos paragrafos*/
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span{
+  font: 700 3rem serif;
+  position: absolute;
+  top: -1rem;
+  left: -2rem;
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal; 
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover; /*quando a imagem nao se encaixar adequadamento*/
+  clip-path: circle(); /*cria uma mascara oara a caixa. nesse caso a <img> esta ficando circular*/
+  margin: 0.5rem;
+}
+
+/*SWIPER*/
+
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination {
+  position: relative;
+  text-align: center;
+  transition: .3s opacity;
+  transform: translate3d(0,0,0);
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.swiper-pagination-bullet-active {/*não conseguim aplicar o scrol de bolinha nos slides */
+  background: var(--base-color); 
+}
+
+/*====  CONTACT ============================ */
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text p {
+  margin-bottom: 2rem;
+}
+
+#contact .button i,
+#contact ul li i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+}
