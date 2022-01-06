@@ -25,16 +25,19 @@ for (const links of linksMenu) {
 }
 
 //mudar o header da página quando der scroll
-const header = document.querySelector('#header')
-const alturadoHeader = header.offsetHeight
+function changeHeaderWhenScroll() {
+  const header = document.querySelector('#header')
+  const alturadoHeader = header.offsetHeight
 
-window.addEventListener('scroll', function () {
   if (window.scrollY >= alturadoHeader) {
     header.classList.add('scroll')
   } else {
     header.classList.remove('scroll')
   }
-})
+}
+
+
+
 
 
 //SWIPER
@@ -60,7 +63,29 @@ scrollReveal.reveal(
   #about .image, #about .text,
   #services header, #services .card,
   #testimonials header, #testimonials .testimonials
-  #contact .text, #contact .links
+  #contact .text, #contact .links,
+  footer .brand, footer .social
   `,
   { interval: 100 }
 )
+
+/*botão voltar para o top*/
+function backToTop() {
+  const backToTopButton = document.querySelector('.back-to-top')
+  
+  if(window.scrollY >= 560){
+    backToTopButton.classList.add('show')
+  }else{
+    backToTopButton.classList.remove('show')
+  }
+}
+
+
+/*chamnado e execultando as função que possuem o evento SCROLL */
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScroll() /*transição dos conteudos da pagina*/
+  backToTop() /*botão para voltar para a seção #home no top */
+  
+  /*é uma forma mais inteligente de chamar as funções que são executada a partir de um evento. nesse caso as duas funções 
+  são execultada quando ocorre o evento "scroll" */
+})

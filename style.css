@@ -43,6 +43,13 @@ img {
   As "MP" são baseados no projeto disponivel no figma: 
     https://www.figma.com/file/NtSPxDA383aacOkF0GwfsC/Origin-Six-(Community)?node-id=0%3A1
   */
+
+  /*Fonts*/
+  --title-font-size: 1.875rem;
+  --subtitle-font-size:1rem;
+
+  --title-font:'Poppins', sans-serif;
+  --body-font:400 1rem 'DM Sans', sans-serif;
 }
 
 /*==== BASE =====================================*/
@@ -51,7 +58,7 @@ html {
 }
 
 body {
-  font: 400 1rem 'DM Sans', sans-serif;
+  font: var(--body-font);
   color: var(--text-color);
   background: var(--body-color);
   -webkit-font-smoothing: antialiased; /**/
@@ -60,7 +67,7 @@ body {
 }
 
 .title {
-  font: 700 1.875rem 'Poppins', sans-serif;
+  font: 700 var(--title-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: antialiased; /**/
   /*utilizando fontes do google*/
@@ -116,11 +123,15 @@ body {
 }
 
 .section {
-  padding: 5rem 0; /*80px/16px = 5rem*/
+  padding: calc(5rem + var(--header-height)) 0; /*80px/16px = 5rem*/
 }
 
 .section .title {
   margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size); 
 }
 
 .section header { /*todo section que tiver header vai ter as seguintes configurações abixo*/
@@ -149,22 +160,19 @@ body {
   background: red;
 }
 
-main {
-  margin-top: calc(
-    (--header-height) + 2rem
-  ); /*é devido ao valor "fixed da propriedade no elemento #header que é necessário" para estabeleer a distancia dos elementos  "main e #header" a fim de ficar mais proximo do prototipo que se encontra ni figma.
-  os +2rem é a distancia entre a image::before e o #header*/
-}
-
 /*==== LOGO =====================================*/
 
 .logo {
-  font: 700 1.3125rem 'Poppins', sans-serif; /* 21px/16px = 1.3125rem */
+  font: 700 1.3125rem var(--title-font); /* 21px/16px = 1.3125rem */
   color: var(--title-color);
 }
 
 .logo span {
   color: var(--base-color);
+}
+
+.logo-alt span{
+  color: var(--body-color);
 }
 
 /*==== NAVEGATION =====================================*/
@@ -215,7 +223,7 @@ nav .menu {
 
 nav .menu ul {
   display: none;
-}
+} 
 
 /*Mostar Menu*/
 nav.show .menu {
@@ -305,8 +313,8 @@ nav.show ul.grid {
 #home .image img {
   position: relative;
   right: 2.93rem;
-  margin-bottom: 2rem;
 }
+
 
 #home .image img,
 #home .image::before {
@@ -464,7 +472,7 @@ nav.show ul.grid {
   height: 0.75rem;
 }
 
-.swiper-pagination-bullet-active {/*não conseguim aplicar o scrol de bolinha nos slides */
+.swiper-pagination-bullet-active {
   background: var(--base-color); 
 }
 
@@ -488,10 +496,161 @@ nav.show ul.grid {
 }
 
 #contact ul li {
-  display: flex;
+  display: flex; /*para deixar os elementos da lista a
+                  linhados ao lado do outro*/
   align-items: center;
 }
 
 #contact ul li i {
-  color: var(--base-color);
+  color: var(--base-color);/*cor dos icons*/
 }
+
+/*====  FOOTER ============================ */
+footer {
+  background: var(--base-color); /*cor de fundo do rodapé*/
+}
+
+footer.section {
+  padding: 4rem 0;
+}
+
+footer .logo {
+  display: block ;/*para abilitar outros propriedades 
+                    como a "marging-bottom"*/
+}
+
+footer .brand p {
+  color: var(--text-color-light); /*cor da font do paragrafo*/
+  margin-bottom: 0.75rem;
+}
+
+footer i {
+  font-size: 1.5rem; /*tamanho do icon*/
+  color: var(--text-color-light);/*cor do icon*/
+}
+
+footer .social {
+  grid-auto-flow: column; /*vai adaptar o grid em forma de columns*/
+  width: fit-content; /*esta pegando a largua e adaptando ao formato
+                        do conteudo*/
+}
+
+footer .social a {
+ /*margin-right: 1.5rem;*/
+   transition: 0.3s;
+   display: inline-block; /*nline-block para habilitar 
+                            as propriedades block*/
+}
+
+footer .social a:hover {
+  transform: translateY(-8px); /*faz com que os icon se movan
+                                 na vertial para cima em -8px*/
+}
+
+.back-to-top { 
+  background: var(--base-color);
+  color: var(--text-color-light);
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: 0.2rem;
+  clip-path: circle();
+
+  font-size: 1.5rem;
+  line-height: 0; /* retira a altura de linha*/
+
+  visibility: hidden;
+  opacity: 1;
+
+  transition: 0.2s; /*transição de tudo em 0.3s*/
+  transform: translateY(100%); /*para realizare um movimento 
+                                 na vertical: esconde o botão 
+                                 abaixo da pagina*/
+
+}
+
+.back-to-top.show {
+  visibility: visible;/*deixa o botão habilitado*/
+  opacity: 1; /*deixa o botão visivel*/
+  transform: translateY(-2%);/*para realizare um movimento 
+                               na vertical: sobe o botão 
+                               para cima da pagina*/
+
+}
+
+/*RESPONSIVO*/
+
+/*========= MEDIA QUERIES =========*/
+/* extra large devices: 1200 > */
+@media (min-width: 1200px) { /*vai aplicar as auterações quando a 
+ tela do dispositivo do usuário possuir a largura minima de 1200px*/ 
+  .container{
+    max-width: 1120px;
+    margin-left: auto; 
+    margin-right: auto;
+    /*ao deixar as marging left e right com valor "auto" 
+      fará com que o conteudo dentro da .container oucupe 
+      o restante das margens dos dolados deixando o 
+      conteudo centralizado */
+  }
+  .section {
+     padding: 10rem 0;
+   }
+   /* navegation */
+   nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+  
+  nav .menu ul {
+    display: flex; /* deixar a <ul> ao lado da ".logo"*/
+  }
+
+  nav .menu ul li a.title{
+    font: var(--title-font);
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  nav .icon-menu{
+    display: none; /*retirar o icon de amburguer*/
+  }
+
+  
+  /* layout */
+  main {
+   margin-top: var(--header-height); /*é devido ao valor "fixed da propriedade no 
+    elemento #header que é necessário" para estabeleer a distancia dos elementos  
+    "main e #header" a fim de ficar mais proximo do prototipo que se encontra ni figma.*/
+  }
+  
+/* home */
+
+  #home .container {
+    grid-auto-flow: column;
+    justify-content:  space-between;
+    margin: 0 auto;
+  }
+  #home .image {
+    order: 1; /*muda a posição da .image para: posição 1 = 2º lugar*/
+  }
+
+#home .text {
+  order: 0; /*muda a posição da .text para: posição 0 = 1º lugar*/
+  max-width: 24rem;
+  text-align: left;
+  }
+}
+
+/* large devices: 1023 > */
+/* large devices: 992 > */
+@media screen and (min-width: 992px) {
+  :root {
+    --title-font-size: 2.2rem;
+    --subtitle-font-size:1.125rem;
+  }
+}
+/* medium devices: 767 > */
+
