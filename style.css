@@ -194,7 +194,7 @@ nav ul li a {
   transition: color 0.3s;
 }
 
-nav ul li a:hover
+nav ul li a:hover,
 nav ul li a.active { /*aplica pro mobaile tambem */
   color: var(--base-color);
 }
@@ -213,8 +213,7 @@ nav ul li a::after {
 
 nav ul li a:hover::after, /*quando passar o mouse das opções de navegação */
 nav ul li a.active:after { /*atraves do evento "scroll" para cada seção */
-  width: 100%;
-
+  width: 100%; 
 }
 
 nav .menu {
