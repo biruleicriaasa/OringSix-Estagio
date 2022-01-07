@@ -86,12 +86,46 @@ function backToTop() {
   }
 }
 
+/* Menu ativo conforme a seção visível na página */
+/* Menu ativo conforme a seção visível na página 1:09:00 parte video*/
 
-/*chamnado e execultando as função que possuem o evento SCROLL */
+const sections = document.querySelectorAll('main section[id]')
+function activateMenuAtCurrentSection() {
+  const checkpoint = ((window.innerHeight / 8) * 4) + window.pageYOffset ;
+  /* .pageYOffset - retorna o número de pixels que o documento
+     está rolando no momento ao longo do eixo vertical.
+     
+     window.innerHeight- Altura (em pixels) da janela de visualização
+     do navegador, incluindo, se renderizado, a barra de rolagem horizontal.
+     */
+
+  for (const section of sections) {
+    const sectionTop = section.offsetTop 
+    /*o .offsetTop acima - é um método apenas de leitura que retorna a 
+    medida, em pixels, da distância do elemento atual em relação ao topo do*/
+    const sectionHeight = section.offsetHeight
+    const sectionId = section.getAttribute('id')
+    /*section.getAttribute('id') - está capturando os valores dos <Section> */
+
+    const checkpointStart = checkpoint >= sectionTop /* o inicio da seção */
+    const checkpointEnd = checkpoint <= sectionTop + sectionHeight /* o fim da seção */
+
+    if (checkpointStart && checkpointEnd) {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.add('active')
+    } else {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.remove('active')
+    }
+  }
+}
+
+/* When Scroll */
 window.addEventListener('scroll', function () {
-  changeHeaderWhenScroll() /*transição dos conteudos da pagina*/
-  backToTop() /*botão para voltar para a seção #home no top */
-  
-  /*é uma forma mais inteligente de chamar as funções que são executada a partir de um evento. nesse caso as duas funções 
-  são execultada quando ocorre o evento "scroll" */
+  changeHeaderWhenScroll()
+  backToTop()
+  activateMenuAtCurrentSection()
 })
+

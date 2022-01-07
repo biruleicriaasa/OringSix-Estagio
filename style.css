@@ -194,7 +194,8 @@ nav ul li a {
   transition: color 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover
+nav ul li a.active { /*aplica pro mobaile tambem */
   color: var(--base-color);
 }
 
@@ -210,8 +211,10 @@ nav ul li a::after {
   transition: width 0.3s;
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after, /*quando passar o mouse das opções de navegação */
+nav ul li a.active:after { /*atraves do evento "scroll" para cada seção */
   width: 100%;
+
 }
 
 nav .menu {
@@ -625,6 +628,12 @@ footer .social a:hover {
     font: var(--title-font);
     -webkit-font-smoothing: antialiased;
   }
+
+  nav .menu ul li a.title.active{
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+
   
   nav .icon-menu{
     display: none; /*retirar o icon de amburguer*/
@@ -682,6 +691,35 @@ footer .social a:hover {
        e vai empurrar de forma que ira centralizar 
        todos os centeudos inseridos na #testimonials .container*/
     overflow: hidden;
+  }
+
+  /* contact */
+  #contact .container {
+    grid-auto-flow: column; /*pega o display grid e deixa 
+                              fluir como colums automaticas */
+    align-items: center; /*alinha os intens ao centro*/
+  }
+
+  #contact .text {
+    max-width: 25rem; /*largura maxima da  #contact .text*/
+  }
+
+/* footer */
+  footer.section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container {
+    grid-auto-flow: column; /*pega o display grid e deixa 
+                             fluir como colums automaticas */
+    align-items: center; /*alinha os intens ao centro*/
+
+    justify-content: space-between; /*adiciona espaço entre  
+                                      os conteudos alinhados*/
+  }
+
+  footer .logo {
+    font-size: 2.25rem;
   }
 }
 
