@@ -48,6 +48,12 @@ const swiper = new Swiper('.swiper-container', {
   },
  mousewheel: true, /*da next quando faz a rolagem do mouse*/
  keyboard: true,
+ breakpoints:{
+  767: { /*quando a width for 767 ou maior:*/
+    slidesPerView: 2, /*deixar visivel dois slides .card */
+    setWrapperSize: true
+  }
+ }
 })
 
 /* ScrollReveal: Mostrar elementos quando der scroll na página */

@@ -16,7 +16,7 @@ ul {
 }
 
 img {
-  width: 100%;
+  width: 100%; /*vai se adptar a width da caixa pai*/
   height: auto; /*faz com que a imagem se adaptar ao tamnho da caixa/tag*/
 }
 
@@ -332,7 +332,7 @@ nav.show ul.grid {
 }
 
 #home .text p {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 /*==== ABOUT =====================================*/
 #about {
@@ -598,6 +598,18 @@ footer .social a:hover {
   .section {
      padding: 10rem 0;
    }
+
+   .section header,
+   #testimonials header {
+    max-width: 32rem; /*a largura maxima das <header> são 32rem*/
+    text-align: center; /*alinha o conteudo do <header> no centro*/
+    margin-left: auto; /*empurra o conteudo da margin esquerda no centro*/
+    margin-right: auto;/*empurra o conteudo da margin direota no centro*/
+   }
+
+  .button {
+     height: 3.125rem;
+   }
    /* navegation */
    nav .menu {
     opacity: 1;
@@ -637,10 +649,39 @@ footer .social a:hover {
     order: 1; /*muda a posição da .image para: posição 1 = 2º lugar*/
   }
 
-#home .text {
-  order: 0; /*muda a posição da .text para: posição 0 = 1º lugar*/
-  max-width: 24rem;
-  text-align: left;
+  #home .text {
+    order: 0; /*muda a posição da .text para: posição 0 = 1º lugar*/
+    max-width: 24rem;
+    text-align: left;
+  }
+  
+/* about */
+  #about .container {
+     margin: 0 auto; 
+     grid-auto-flow: column; /* faz com que o conteudo sofra adptação 
+                                em colunas e fez a rederenzaçao do conteudo*/
+  }
+/* services */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr ; 
+    /*o card possui o display grid então essa propriedade
+     modela com colunms e edita o tamanho dessas colunms*/
+  }
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+  }
+
+/* testimonials */
+  #testimonials .container {
+    margin-left: auto; 
+    margin-right: auto;
+    /* vai pegar a margim restante de todos os filhos 
+       e vai empurrar de forma que ira centralizar 
+       todos os centeudos inseridos na #testimonials .container*/
+    overflow: hidden;
   }
 }
 
